@@ -1,0 +1,25 @@
+body{
+    margin: 0;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+}
+
+.holder{
+    text-align: center;
+}
+
+button{
+    padding: 10px;
+    background-color: aqua;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    ;
+}
