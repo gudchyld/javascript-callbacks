@@ -7,9 +7,10 @@ Usually this callback function provides additional functionality to the enclosin
 
 
 //2. Creating and Using callback Functions
-function caller(callback) {
-    callback("I got called");
-}
+
+// function caller(callback) {
+//     callback("I got called");
+// }
 
 // function called(msg){
 //     console.log(msg)
@@ -24,26 +25,28 @@ function caller(callback) {
 // })
 
 
-//3. Passing arguments to callback Functions
-function theParent(item, callback) {
-    callback(item)
-}
+//3. Passing arguments to callback Function
 
-function theCallback(n) {
-    let sum = 2 + n;
-    console.log(sum)
-}
+// function theParent(item, callback) {
+//     callback(item)
+// }
 
-theParent(4, theCallback)
+// function theCallback(n) {
+//     let sum = 2 + n;
+//     console.log(sum)
+// }
+
+// theParent(4, theCallback)
 
 //4. Asynchronous callbacks
+
 /**
  * execution of asynchronous  callback is usually deferred to a later time.
  * javascript executes code from top to bottom usually in what is called a synchronous way, one action executes after another.
  * 
  * but in asynchronous the order of execution tend to be different, a top action can end up been executed later. and when callbacks are used in this scenario, they become asynchronous callbacks
  * 
- * A typical example is with event listener and hook them to a dom object,
+ * A typical example is with event listener when hooked to a dom object,
  * because the code logic doesnt execute immediately unless an action is registered, it becomes asynchronous
  */
 
@@ -52,7 +55,46 @@ document.getElementById('click-me').addEventListener('click', () => {
     document.getElementById('content').textContent = "I just got called"
 })
 
-//Example: fetching data
 
+
+//simulating asynchronous callbacks
+
+function theParent(item, callback) {
+    if (callback) {
+        setTimeout(() => callback(item), 2000)
+    }
+
+
+    console.log(`The item is ${item}`)
+}
+
+function theCallBack(n) {
+    let sum;
+    if (n) {
+        sum = 2 + n;
+        console.log(`The Total is = ${sum} `)
+    }
+}
+
+theParent(2, theCallBack)
+
+//without asynchronous
+// function theParent(item, callback) {
+//     callback(item)
+
+//     console.log(`The item is ${item}`)
+// }
+
+// function theCallBack(n) {
+//     let sum;
+//     if (n) {
+//         sum = 2 + n;
+//         console.log(`The Total is = ${sum} `)
+//     }
+// }
+
+// theParent(2, theCallBack)
+
+//resolution for asynchronous
 
 
